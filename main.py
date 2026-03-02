@@ -32,7 +32,10 @@ def run(name):
     elif name == "help":
          print("help:\n")
          print("commands: read write init add help")
-
+         print("read: get list of files being tracked")
+         print("add: adds a file to be tracked")
+         print("init: init a folder")
+         print("help: prints this help text")
 
 arg = argparse.ArgumentParser(description="git like program")
 arg.add_argument("action", help="do something")

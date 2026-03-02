@@ -19,7 +19,20 @@ def run(name):
         with open("v-track/tracker.txt", mode="r") as f:
             print(f"files that are being tracked:\n{f.read()}")
     elif name == "add":
-        option = 
+            file = input("file: ") 
+            print("addding", file, "to tracker.txt")
+            with open("v-track/tracker.txt", mode="a+") as f:
+      #      stoof = f.read()
+       #     print(stoof)
+        #    if file in stoof:
+         #       print("sorry duplicates will crash the thing")
+          #      exit(0)
+                f.write(file)
+                f.write("\n")
+    elif name == "help":
+         print("help:\n")
+         print("commands: read write init add help")
+
 
 arg = argparse.ArgumentParser(description="git like program")
 arg.add_argument("action", help="do something")

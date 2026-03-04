@@ -4,13 +4,21 @@ from os import makedirs
 files = []
 def folder(folder):
     makedirs(f"c:/Users/Ayaansh_Joshi/Desktop/v-tracker-latest/v-track/{folder}")
+
+    with open(folder, mode="r") as f:
+        stuff = f.read()
+    with open(f"v-track/{folder}/{folder}",mode="w") as f2:
+        f2.write(stuff)
+
+         
 def start():
     global files
-    fik_num = 0
     while True:
             with open("v-track/tracker.txt", 'r') as f:     
                  for line in f:
                       files.append(line.strip())
+            
+            
                       
             print(files)          
             sleep(1)

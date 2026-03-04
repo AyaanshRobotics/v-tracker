@@ -1,4 +1,1 @@
-add.pysatrt.py
-lib3.py
 main.py
-lib3.py

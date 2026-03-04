@@ -1,4 +1,6 @@
 import argparse
+from time import sleep
+import subprocess
 files = []
 def line():
     with open("v-track/tracker.txt", 'r') as f:
@@ -8,12 +10,18 @@ def start():
             with open("v-track/tracker.txt", 'r') as f:     
                  for line in f:
                       files.append(line.strip())
+                      subprocess([f"mkdir", "v-track/{line.strip()}"],shell=True)
+                      
             print(files)          
+            sleep(1)
+
+
+
          
 def run(name):
     if name == "init":
         import subprocess
-        import os
+     #   import os
         subprocess.run(['mkdir', 'v-track'],shell=True)
         subprocess.run(['cd', 'v-track'],shell=True)
         file = input("file: ") 
@@ -47,6 +55,10 @@ def run(name):
          print("add: adds a file to be tracked")
          print("init: init a folder")
          print("help: prints this help text")
+    elif name == "start":
+        pass
+    else:
+         print("sorry unkown command")
 
 arg = argparse.ArgumentParser(description="git like program")
 arg.add_argument("action", help="do something")

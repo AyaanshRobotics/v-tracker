@@ -20,8 +20,19 @@ def start():
     while True:
         for tracked_file in files:
             with open(f"v-track/{tracked_file}/{tracked_file}", mode='r') as f3:
-                with open(tracked_file, mode='r') as f4:
-                    if f4.read() != f3.read():
+                try:
+                    with open(tracked_file, mode='r') as f4:
+                        if f4.read() != f3.read():
+                            print("chengin...")
+                            with open(f"v-track/{folder}/file_num.txt") as f24: 
+                                file_num = f24.read()
+                            with open(f"v-track/{folder}/file_num", mode="r") as f24:
+                                f24.write(file_num)                            
+                            
+                            
+                            sleep(5)
+                except PermissionError as e:
+                    sleep(5)
                         
 
 

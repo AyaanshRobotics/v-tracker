@@ -1,6 +1,13 @@
 import argparse
 from time import sleep
 from os import makedirs
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+class h(FileSystemEventHandler):
+    def on_modified(self, event):
+        if not event.is_directory and event.src_path.endswith(WATCH_FILE):
+            
 files = []
 def folder(folder):
     makedirs(f"c:/Users/Ayaansh_Joshi/Desktop/v-tracker-latest/v-track/{folder}")

@@ -19,21 +19,27 @@ def start():
             files.append(line.strip())
     while True:
         for tracked_file in files:
+            print(f"Attempting to open: v-track/{tracked_file}/{tracked_file}")
             with open(f"v-track/{tracked_file}/{tracked_file}", mode='r') as f3:
+                print("opend")
                 try:
                     with open(tracked_file, mode='r') as f4:
+                        stoof = f4.read()
                         if f4.read() != f3.read():
                             print("chengin...")
-                            with open(f"v-track/{folder}/file_num.txt") as f24: 
-                                file_num = f24.read()
-                            with open(f"v-track/{folder}/file_num", mode="r") as f24:
-                                f24.write(file_num)                            
-                            
-                            
+                       #     with open(f"v-track/{tracked_file}/file_num.txt") as f24: 
+                        #        print(f24.read())
+                         #       file_num = f24.read()    
+                             #   file_num += 1
+                            from random import randint
+
+                            with open(f"v-track/{tracked_file}/{tracked_file}{randint(1,99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999)}", mode="w") as f32:
+                                f32.write(stoof)                
                             sleep(5)
                 except PermissionError as e:
+                    print(" permission denied most likley that one of the tracked files is being used")
                     sleep(5)
-                        
+            sleep(5)            
 
 
 
@@ -46,7 +52,7 @@ def run(name):
         subprocess.run(['mkdir', 'v-track'],shell=True)
         subprocess.run(['cd', 'v-track'],shell=True)
         file = input("file: ") 
-        print("addding", file, "to tracker.txt")
+      #  print("addding", file, "to tracker.txt")
         with open("v-track/tracker.txt", mode="a+") as f:
       #      stoof = f.read()
        #     print(stoof)
@@ -61,14 +67,14 @@ def run(name):
             print(f"files that are being tracked:\n{f.read()}")
     elif name == "add":
             file2 = input("file: ") 
-            print("addding", file, "to tracker.txt")
+        #    print("addding", file, "to tracker.txt")
             with open("v-track/tracker.txt", mode="a+") as f:
       #      stoof = f.read()
        #     print(stoof)
         #    if file in stoof:
          #       print("sorry duplicates will crash the thing")
           #      exit(0)
-                f.write(file2)
+                f.write(f"{file2}\n")
                 f.write("\n")
                 folder(file2)
     elif name == "help":

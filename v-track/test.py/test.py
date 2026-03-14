@@ -1,3 +1,0 @@
-import pythoncom
-
-pythoncom.CoInitialize()

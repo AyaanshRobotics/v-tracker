@@ -13,9 +13,15 @@ installation:
 	when it is downloaded open it if something pops up saying Windows protected you PC jst click more info then run anyway
 building or running from source:
 	to build it download the main.py file and install pyinstaller(pip install pyinstaller or pip3 install pyinstaller) 
-	then run "python -m pyinstaller --onefile main.py" in the same folder as the main.py file (if you used pip3 then do python3 instead of python)
+	then run
+	
+	python -m pyinstaller --onefile main.py
 
+in the same folder as the main.py file (if you used pip3 then do python3 instead of python)
 	to run it from source:
 		download main.py
-		run main.py using "python main.py" (or python3 if you have python3)
+		run main.py using 
+		
+		python main.py
+(or python3 if you have python3)
 

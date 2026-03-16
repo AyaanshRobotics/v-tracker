@@ -1,0 +1,21 @@
+name: Debug with SSH
+
+# Trigger manually or on push
+on:
+  workflow_dispatch:
+
+jobs:
+  live-shell:
+    runs-on: macos-latest  # or ubuntu-latest if testing Linux
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up interactive SSH session
+        uses: owenthereal/action-upterm@v1
+        with:
+          # Restrict SSH access to only the person who triggered the workflow
+          limit-access-to-actor: true
+
+      # Optional: keep the job running so the SSH session stays open
+      - name: Wait for debug (sleep)
+        run: sleep 2h

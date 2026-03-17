@@ -24,4 +24,5 @@ in the same folder as the main.py file (if you used pip3 then do python3 instead
 		
 		python main.py
 (or python3 if you have python3)
+(Note: This should work on all platforms but I have not tested it yet)
 

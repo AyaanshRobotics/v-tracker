@@ -3,7 +3,7 @@ import os, time, argparse, time
 files = []
 
 def folder(folder):
-    os.makedirs(f"{os.getcwd()}/{folder}")
+    os.makedirs(f"{os.getcwd()}/v-track/{folder}")
 
     with open(folder, mode="r") as f:
         stuff = f.read()
